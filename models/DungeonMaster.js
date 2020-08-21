@@ -1,6 +1,6 @@
 module.exports = (model, Schema) => {
 
-    const Goose = new Schema({
+    const DungeonMaster = new Schema({
       age: Number,
       campaign: String,
       encounter: String,
@@ -14,5 +14,5 @@ module.exports = (model, Schema) => {
       users: [{ type: Schema.Types.ObjectId, ref: 'Users' }]
     }, { timestamps: { createdAt: 'birthday', updatedAt: 'goosechange' } })
   
-    return model('Goose', Goose)
+    return model('DungeonMaster', DungeonMaster)
   }

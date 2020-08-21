@@ -1,7 +1,7 @@
 const DungeonMaster = require("./DungeonMaster")
 
 module.exports = (model, Schema) => {
-    const Gosling = new Schema({
+    const Character = new Schema({
       name: String,
       level: Number,
       proficiency: Number,
@@ -15,8 +15,7 @@ module.exports = (model, Schema) => {
       abilityScore: Object,
       color: String,
       user: { type: Schema.Types.ObjectId, ref: 'User' },
-      dungeonMaster: { type: Schema.Types.ObjectId, ref: 'DungeonMaster' }
     })
   
-    return model('Gosling', Gosling)
+    return model('Character', Character)
   }
