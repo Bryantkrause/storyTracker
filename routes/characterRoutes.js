@@ -35,3 +35,18 @@ module.exports = app => {
       .catch(e => console.error(e))
   })
 }
+
+    // update one character
+    app.put('/character/:id', (req, res) => {
+      console.log("character put route hit")
+        Character.updateOne({ _id: req.params.id }, { $set: req.body })
+        .then( r => console.log(res.json(r)))
+        .catch(e => console.log(e))
+    })
+
+        // remove one character
+        app.delete('/character/:id', (req, res) => {
+          Character.deleteOne({ _id: req.params.id })
+              .then(character => res.json(character))
+              .catch(e => console.log(e))
+      })
