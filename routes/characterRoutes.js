@@ -34,7 +34,7 @@ module.exports = app => {
       })
       .catch(e => console.error(e))
   })
-}
+
 
     // update one character
     app.put('/character/:id', (req, res) => {
@@ -50,3 +50,4 @@ module.exports = app => {
               .then(character => res.json(character))
               .catch(e => console.log(e))
       })
+    }

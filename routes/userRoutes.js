@@ -22,7 +22,7 @@ module.exports = app => {
     .then(user => res.json(user))
     .catch(e => console.error(e))
   })
-}
+
 
     // update one user
     app.put('/user/:id', (req, res) => {
@@ -38,3 +38,4 @@ module.exports = app => {
               .then(user => res.json(user))
               .catch(e => console.log(e))
       })
+    }
