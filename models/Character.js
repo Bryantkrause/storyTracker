@@ -15,7 +15,7 @@ module.exports = (model, Schema) => {
       abilityScore: Object,
       color: String,
       user: { type: Schema.Types.ObjectId, ref: 'User' },
-    })
+    }, { timestamps: { createdAt: 'birthday', updatedAt: 'pcChange' } })
   
     return model('Character', Character)
   }

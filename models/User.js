@@ -6,7 +6,7 @@ module.exports = (model, Schema) => {
       color: String,
       character: [{ type: Schema.Types.ObjectId, ref: 'Character' }],
       dungeonMaster: { type: Schema.Types.ObjectId, ref: 'DungeonMaster' }
-    })
+    }, { timestamps: { createdAt: 'birthday', updatedAt: 'userChange' } })
   
     return model('User', User)
   }

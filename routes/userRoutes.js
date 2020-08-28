@@ -1,4 +1,4 @@
-const { Character, User } = require('../models')
+const { DungeonMaster, User } = require('../models')
 
 module.exports = app => {
 
@@ -19,9 +19,19 @@ module.exports = app => {
   // POST one user
   app.post('/user', (req, res) => {
     User.create(req.body)
-    .then(user => res.json(user))
+    .then(({ _id }) => {
+      DungeonMaster.updateOne({ 
+        _id: req.body.dungeonMaster 
+      }, { 
+        $push: {
+          dungeonMaster: _id
+        }
+      })
+        .then(() => res.sendStatus(200))
+        .catch(e => console.error(e))
+    })
     .catch(e => console.error(e))
-  })
+})
 
 
     // update one user
