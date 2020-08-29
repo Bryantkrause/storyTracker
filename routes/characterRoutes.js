@@ -22,12 +22,8 @@ module.exports = app => {
   app.post('/character', (req, res) => {
     Character.create(req.body)
       .then(({ _id }) => {
-        User.updateOne({ 
-          _id: req.body.user 
-        }, { 
-          $push: {
-            character: _id
-          }
+        User.updateOne({_id: req.body.user},
+           {$push: {character: _id}
         })
           .then(() => res.sendStatus(200))
           .catch(e => console.error(e))

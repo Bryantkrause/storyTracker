@@ -1,0 +1,7 @@
+
+example DM
+"_id": "5f4a7f90430f2905948b237c",
+{
+	"name": "Hammer of Justice",
+    "campaign": "Disfigured"
+}
