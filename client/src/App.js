@@ -1,12 +1,19 @@
 import React from 'react';
+import { Container } from '@material-ui/core'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import CharacterPage from './pages/Character'
 
-import './App.css';
-
-function App() {
+function App(props) {
   return (
-    <div className="App">
-     
-    </div>
+<Container>
+<BrowserRouter>
+<Switch>
+<Route exact path="/" component={CharacterPage} {...props} />
+</Switch>
+</BrowserRouter>
+</Container>
+
+
   );
 }
 

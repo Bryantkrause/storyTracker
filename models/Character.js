@@ -1,5 +1,3 @@
-const DungeonMaster = require("./DungeonMaster")
-
 module.exports = (model, Schema) => {
     const Character = new Schema({
       name: String,

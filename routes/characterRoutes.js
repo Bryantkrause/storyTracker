@@ -3,7 +3,7 @@ const { Character, User } = require('../models')
 module.exports = app => {
 
   // GET all character
-  app.get('/character', (req, res) => {
+  app.get('/characters', (req, res) => {
     Character.find()
       .populate('user')
       .then(characters => res.json(characters))
