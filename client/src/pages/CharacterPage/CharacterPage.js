@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import CharacterContext from '../../utils/CharacterContext'
-
+import CharacterDisplay from '../../Components/CharacterDisplay'
 
 const CharacterPage = _ => {
 const [charState, setCharState] = React.useState ({    

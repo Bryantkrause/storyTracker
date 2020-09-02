@@ -17,9 +17,9 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-const CharacterDisplay = () => {
+
     
-    const useStyles = makeStyles((theme) => ({
+    const CharacterDisplay = makeStyles((theme) => ({
         root: {
           maxWidth: 345,
         },
@@ -43,7 +43,7 @@ const CharacterDisplay = () => {
       }));
       
       export default function RecipeReviewCard() {
-        const classes = useStyles();
+        const classes = CharacterDisplay();
         const [expanded, setExpanded] = React.useState(false);
       
         const handleExpandClick = () => {
@@ -126,6 +126,4 @@ const CharacterDisplay = () => {
         );
       }
 
-}
 
-export default CharacterDisplay

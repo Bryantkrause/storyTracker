@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '@material-ui/core'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import CharacterPage from './pages/Character'
+import CharacterPage from './pages/CharacterPage'
 
 function App(props) {
   return (
