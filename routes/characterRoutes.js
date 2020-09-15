@@ -2,10 +2,10 @@ const { Character, User } = require('../models')
 
 module.exports = app => {
 
-  // GET all character
+  // GET all characters
   app.get('/characters', (req, res) => {
     Character.find()
-      .populate('user')
+      // .populate('user')
       .then(characters => res.json(characters))
       .catch(e => console.error(e))
   })

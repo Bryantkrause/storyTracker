@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { createContext} from 'react'
 
-const CharacterContext = React.createContext({
+const CharacterContext = createContext({
   name: '',
   level: '',
   proficiency: '',
@@ -14,11 +14,12 @@ const CharacterContext = React.createContext({
   abilityScore: {},
   color: '',
   status: '',
+  character: '',
   characters: [],
-  deleteCharacter: () => {},
-  characterSubmit: () => {},
-  inputChange: () => {},
-  getCharacter: () => {}
+  handleInputChange: () => {},
+  handleAddChar: () => {},
+  handleToggleChar: () => {},
+  handleRemoveChar: () => {}
 })
 
 export default CharacterContext

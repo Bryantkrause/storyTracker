@@ -1,44 +1,52 @@
-import React from 'react'
-import axios from 'axios'
+import React, {useState, useEffect} from 'react'
 import CharacterContext from '../../utils/CharacterContext'
+import API from '../../utils/API'
 import CharacterDisplay from '../../Components/CharacterDisplay'
+import CharacterForm from '../../Components/CharacterForm'
 
-const CharacterPage = _ => {
-const [charState, setCharState] = React.useState ({    
-  name: '',
-  level: '',
-  proficiency: '',
-  speed: '',
-  initiative: '',
-  ac: '',
-  health: '',
-  attackModifiers:{},
-  race: '',
-  age: '',
-  abilityScore: {},
-  color: '',
-  status: '',
-  characters: [],
-  deleteCharacter: () => {},
-  characterSubmit: () => {},
-  inputChange: () => {},
-  getCharacter: () => {}
+const {getCharacters, addCharacter, updateCharacters, deleteCharacters } = API
+
+const CharacterPage = () => {
+
+const [charState, setCharState] = useState({
+  character: '',
+  characters: []
+})
+
+charState.handleInputChange = (event) => {
+  setCharState({...charState, [event.target.name]:
+    event.target.value})
+}
+
+charState.handleAddChar = (event) => {
+  event.preventDefault()
+  addCharacter({ text: charState.character, isDone: false})
+  .then(({data: character}) =>{
+    let characters = JSON.parse(JSON.stringify
+      (charState.characters))
+      characters.push(character)
+      setCharState({...charState, characters})
   })
+  .catch(e => console.error(e))
+}
 
-// componentDidMount() { // When the page loads grab the data from the database and update the characters array
-//     axios.get('/characters')
-//       .then( ({data}) => this.setState({ characters: data }))
-//   }
+useEffect(() => {
+  getCharacters()
+  .then(({data: characters }) => {
+    setCharState({ ...charState, characters})
+  })
+.catch(e => console.error(e))
+})
+
+return (
+<CharacterContext.Provider value={charState}>
+<CharacterForm/>
+<CharacterDisplay/>
+</CharacterContext.Provider>
+
+)
 
 
-// render () {
-    return (
-      <CharacterContext.Provider value={charState}>
-          <CharacterDisplay />
-      </CharacterContext.Provider>
-    )
-  }
-
-
+}
 
 export default CharacterPage
